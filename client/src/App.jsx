@@ -4,6 +4,7 @@ import './App.css';
 import Search from './components/search';
 import Indices from './components/indices';
 import { AiOutlineArrowDown } from 'react-icons/ai'
+import Quickindexview from './components/quickindexview';
 function App() {
 
   const [backendData, setBackendData] = useState([]);
@@ -35,8 +36,12 @@ function App() {
     <div className='background'>
       <h1 className='header'>Search a stock </h1>
       <Search />
+
       <p style={{ color: "rgb(0, 200, 161)", marginTop: "35px" }}><AiOutlineArrowDown size={20} /></p>
-      <Indices />
+      {/* <Indices /> */}
+      <Quickindexview index={"GSPC"} />
+      <Quickindexview index={"DJIA"} />
+      <Quickindexview index={"IXIC"} />
     </div>
   )
 }
