@@ -1,0 +1,155 @@
+/* So this takes up the full screen, dims the background
+and a rectangular pill shows up with the search field.
+
+below the search field, there is suggestions, and below that a button to submit
+the search. It's similar to that of MAC OS Spotlight search, same style. 
+The classname of the parent div is full_search
+the parent classname of the suggestions is suggestions
+the suggestions children are all called suggestion-row
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* place close_btn at the top right corner of the screen  with no button background */
+.close_btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: white;
+    margin: 10px;
+}
+
+
+.spotlight_wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    gap: 15px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.spotlight {
+    width: 50%;
+    height: 6%;
+    border-radius: 5px;
+    box-shadow: 0 25px 60px 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    font-size: 1.6rem;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #ffffff;
+    background-color: rgb(0, 200, 161);
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkViZW5lXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMjIuNyAyMi41IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyMi43IDIyLjUiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxjaXJjbGUgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjY2NzY2IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgY3g9IjguMSIgY3k9IjguNCIgcj0iNi44Ii8+PGxpbmUgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjY2NzY2IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjEzLjIiIHkxPSIxMi45IiB4Mj0iMjEuNSIgeTI9IjIxLjQiLz48L3N2Zz4=);
+    background-position: left 17px center;
+    background-repeat: no-repeat;
+    background-size: 3.5%;
+    padding: 0 52px;
+}
+
+.spotlight:-moz-placeholder {
+    color: #ffffff;
+
+}
+
+.spotlight::-moz-placeholder {
+    color: #ffffff;
+}
+
+.spotlight:-ms-input-placeholder {
+    color: #ffffff;
+}
+
+.spotlight::-webkit-input-placeholder {
+    color: #ffffff;
+}
+
+
+
+.suggestions {
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    overflow-y: hidden;
+    text-align: center;
+    justify-content: center;
+}
+
+.suggestion-row {
+    width: 50%;
+    height: 6%;
+    border-radius: 5px;
+    background-color: #445069;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    justify-content: center;
+}
+
+.suggestion-row:hover {
+    background-color: rgb(0, 200, 161);
+
+}
+
+.search_field {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 10px;
+
+}
+
+.submit_btn {
+    width: 50%;
+    height: 6%;
+    border-radius: 5px;
+    background-color: rgb(0, 200, 161);
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    justify-content: center;
+}
+
+.submit_btn:hover {
+    background-color: #445069;
+
+}

@@ -3,10 +3,12 @@ import { restClient } from '@polygon.io/client-js';
 import './App.css';
 import Search from './components/search';
 import Indices from './components/indices';
-import { AiOutlineArrowDown } from 'react-icons/ai'
+import { AiOutlineArrowDown, AiOutlineStock } from 'react-icons/ai'
 import Quickindexview from './components/quickindexview';
+import Fullsearch from './components/fullsearch';
+import { Animated } from "react-animated-css";
 function App() {
-
+  const [fullSearch, setFullSearch] = useState(false);
   const [backendData, setBackendData] = useState([]);
   const rest = restClient("p3sYZ50gEhAqNzyRAesn5unTKWM94uQk");
   useEffect(() => {
@@ -31,17 +33,25 @@ function App() {
     };
     setBackendData(storeddata_closed_appl);
   }, []);
-
+  function toggleFullSearch() {
+    setFullSearch(!fullSearch);
+  }
   return (
     <div className='background'>
-      <h1 className='header'>Search a stock </h1>
-      <Search />
+      <Animated className='background' animationIn="bounceIn" animationOut="fadeOut" isVisible={true}>
+        <div className='Logo'>
+          <AiOutlineStock size={150} style={{ 'color': 'rgb(0, 200, 161)' }} />
 
-      <p style={{ color: "rgb(0, 200, 161)", marginTop: "35px" }}><AiOutlineArrowDown size={20} /></p>
-      {/* <Indices /> */}
-      <Quickindexview index={"GSPC"} />
-      <Quickindexview index={"DJIA"} />
-      <Quickindexview index={"IXIC"} />
+          <h1 className='header '>Stock Dashboard</h1>
+        </div>
+        <Search change={toggleFullSearch} />
+        {fullSearch ? <Fullsearch toggle={toggleFullSearch} /> : null}
+        <p style={{ color: "rgb(0, 200, 161)", marginTop: "35px" }}><AiOutlineArrowDown size={20} /></p>
+        {/* <Indices /> */}
+        <Quickindexview index={"GSPC"} />
+        <Quickindexview index={"DJIA"} />
+        <Quickindexview index={"IXIC"} />
+      </Animated>
     </div>
   )
 }

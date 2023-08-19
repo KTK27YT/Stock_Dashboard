@@ -9,7 +9,7 @@ function Quickindexview(props) {
     const [eod, setEod] = useState([]);
     const [indicename, setIndiceName] = useState([]);
     useEffect(() => {
-        if (props.index == "GSPC") {
+        if (props.index === "GSPC") {
             setIndiceName("S&P 500");
             setEod({
                 "symbol": "GSPC",
@@ -21,7 +21,7 @@ function Quickindexview(props) {
                 "close": "4464.04980"
             });
         }
-        else if (props.index == "DJIA") {
+        else if (props.index === "DJIA") {
             setIndiceName("Dow Jones Industrial Average");
             setEod({
                 "symbol": "DJIA",
@@ -34,7 +34,7 @@ function Quickindexview(props) {
                 "timestamp": 1691783990
             });
         }
-        else if (props.index == "IXIC") {
+        else if (props.index === "IXIC") {
             setIndiceName("NASDAQ Composite");
             setEod({
                 "symbol": "IXIC",
