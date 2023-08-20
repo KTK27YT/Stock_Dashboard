@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./fullsearch.css";
+import '../css/fullsearch.css'
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { Animated } from "react-animated-css";
 function Fullsearch(props) {
@@ -38,6 +38,11 @@ function Fullsearch(props) {
             setShowSuggestions(true);
         }
     }
+    function handleAutoClick(e) {
+        setSearchTerm(e.target.outerText);
+        setShowSuggestions(false);
+        props.submithandle(e.target.outerText);
+    }
     return (
         <Animated className='spotlight_wrapper' animationIn="bounceIn" animationOut="fadeOut" isVisible={true}>
             <div className="spotlight_wrapper">
@@ -46,7 +51,7 @@ function Fullsearch(props) {
                 {showSuggestions ? <Animated className='suggestions' animationIn="FadeIn" animationOut="fadeOut" isVisible={true}>
                     <div className='suggestions'>
                         {suggestions.map((suggestion, index) => {
-                            return <div onClick={(e) => setSearchTerm(e.target.outerText)} value={suggestion} className="suggestion-row" key={index}>{suggestion}</div>
+                            return <div onClick={handleAutoClick} value={suggestion} className="suggestion-row" key={index}>{suggestion}</div>
                         })}
                         <div className="submit_btn">Submit</div>
                     </div>

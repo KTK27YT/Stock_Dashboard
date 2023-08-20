@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import snp500data from './snp500data';
-import "./indices.css"
+import "../css/indices.css"
 import responsivefy from '../functions/responsivefy';
 /* take the data from snp500data and create a chart with it 
 using d3.js it will be done inside the div with class chart-container

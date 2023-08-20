@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './search.css'
+import '../css/search.css'
 import { AiOutlineSearch } from 'react-icons/ai'
 
 function Search(props) {
