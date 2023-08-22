@@ -15,7 +15,7 @@ function App() {
     setHomeScreen(!homeScreen);
   }
   return (
-    <div className='background'>
+    <div>
       {ViewStock ? <Stock_View stock={searchvalue} /> : null}
       {homeScreen ? <Home_Screen searchhandler={search_submit} /> : null}
     </div>

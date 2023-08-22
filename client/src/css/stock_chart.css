@@ -1,18 +1,6 @@
-.Chart {
-    display: flex;
-    flex-direction: row;
-    background-color: #445069;
-    border: none;
-    gap: 15px;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 4px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s all;
+#chart-container {
     width: 100%;
-    height: 100%;
-    margin: 10px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
