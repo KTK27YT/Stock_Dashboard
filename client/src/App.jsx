@@ -9,14 +9,15 @@ function App() {
   function search_submit(value) {
     toggleHomeScreen();
     setSearchValue(value);
-    setViewStock(true);
+    setViewStock(!ViewStock);
   }
   function toggleHomeScreen() {
+    setViewStock(false);
     setHomeScreen(!homeScreen);
   }
   return (
     <div>
-      {ViewStock ? <Stock_View stock={searchvalue} /> : null}
+      {ViewStock ? <Stock_View homescrnfunc={toggleHomeScreen} stock={searchvalue} /> : null}
       {homeScreen ? <Home_Screen searchhandler={search_submit} /> : null}
     </div>
   )

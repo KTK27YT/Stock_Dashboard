@@ -15,6 +15,16 @@ function Quickstockview(props) {
             "timestamp": 1691783959,
             "close": "13644.84961"
         });
+        const data = {
+            "symbol": "IXIC",
+            "exchange": "NASDAQ",
+            "mic_code": "XNGS",
+            "currency": "USD",
+            "datetime": "2023-08-11",
+            "timestamp": 1691783959,
+            "close": "13644.84961"
+        };
+        props.setCurrency(data.currency);
         // fetch(url + "DJIA" + "&apikey=" + apikey)
         //     .then(response => response.json())
         //     .then(data => {

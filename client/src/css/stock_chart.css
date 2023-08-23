@@ -4,3 +4,21 @@
     overflow-y: hidden;
     white-space: nowrap;
 }
+
+rect {
+    pointer-events: all;
+    fill-opacity: 0;
+    stroke-opacity: 0;
+    z-index: 1;
+}
+
+.tooltip {
+    position: absolute;
+    padding: 10px;
+    background-color: #282c34;
+    border: 1px solid rgb(0, 200, 161);
+    border-radius: 5px;
+    color: white;
+    display: none;
+    opacity: .75;
+}
