@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './css/App.css'
 import Stock_View from './Stock_View';
 import Home_Screen from './home_screen';
+
 function App() {
   const [ViewStock, setViewStock] = useState(false);
   const [searchvalue, setSearchValue] = useState("");

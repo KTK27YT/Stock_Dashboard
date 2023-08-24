@@ -9,6 +9,8 @@ function Fullsearch(props) {
     const [searchTerm, setSearchTerm] = useState("");
     const [suggestions, setSuggestions] = useState([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
+    // I create this to prevent the error saying filtering undefined, as we are still grabbing the data required
+    const [doneSearch, setDoneSearch] = useState(false);
     useEffect(() => {
         const stockurl = `https://api.twelvedata.com/stocks`;
         const indiceurl = `https://api.twelvedata.com/indices`;
@@ -18,6 +20,7 @@ function Fullsearch(props) {
                 const stockList = data.data.map((stock) => stock.symbol);
                 console.log("Working on stocklist");
                 setStockList(stockList);
+                setDoneSearch(true);
             })
         fetch(indiceurl)
             .then(response => response.json())
@@ -31,7 +34,7 @@ function Fullsearch(props) {
     const handleChange = (e) => {
         setSearchTerm(e.target.value);
         console.log(searchTerm);
-        if (searchTerm.length > 2) {
+        if (searchTerm.length > 2 && doneSearch) {
             const results = stockList.filter((stock) => stock.toLowerCase().includes(searchTerm.toLowerCase()));
             setSuggestions(results.slice(0, 10));
             console.log(suggestions);

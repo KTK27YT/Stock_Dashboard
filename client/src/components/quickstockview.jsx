@@ -1,6 +1,8 @@
+
 import React, { useEffect, useState } from 'react'
 import '../css/quickstockview.css'
-const apikey = "db575e6498614445b5b15465b45686dc";
+import { API_KEY } from '../config';
+const apikey = API_KEY;
 const url = "https://api.twelvedata.com/eod?symbol="
 //https://api.twelvedata.com/eod?symbol=AAPL&apikey=your_api_key
 function Quickstockview(props) {

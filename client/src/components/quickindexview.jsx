@@ -1,7 +1,9 @@
+
 import React, { Component, useState, useEffect } from 'react'
 import '../css/quickindexview.css';
 import $ from 'jquery';
-const apikey = "db575e6498614445b5b15465b45686dc";
+import { API_KEY } from '../config';
+const apikey = API_KEY;
 const url = "https://api.twelvedata.com/eod?symbol="
 
 
