@@ -12,48 +12,32 @@ function Quickindexview(props) {
     const [indicename, setIndiceName] = useState([]);
     useEffect(() => {
         if (props.index === "GSPC") {
+            fetch(url + "GSPC" + "&apikey=" + apikey)
+                .then(response => response.json())
+                .then(data => {
+                    setEod(data);
+                    console.log(data);
+                })
             setIndiceName("S&P 500");
-            setEod({
-                "symbol": "GSPC",
-                "exchange": "NYSE",
-                "mic_code": "XNYS",
-                "currency": "USD",
-                "datetime": "2023-08-11",
-                "timestamp": 1691783998,
-                "close": "4464.04980"
-            });
         }
         else if (props.index === "DJIA") {
             setIndiceName("Dow Jones Industrial Average");
-            setEod({
-                "symbol": "DJIA",
-                "exchange": "NYSE",
-                "close": "22.32000",
-                "currency": "USD",
-                "datetime": "2023-08-11",
-                "exchange": "NYSE",
-                "mic_code": "ARCX",
-                "timestamp": 1691783990
-            });
+            fetch(url + "DJIA" + "&apikey=" + apikey)
+                .then(response => response.json())
+                .then(data => {
+                    setEod(data);
+                    console.log(data);
+                })
         }
         else if (props.index === "IXIC") {
             setIndiceName("NASDAQ Composite");
-            setEod({
-                "symbol": "IXIC",
-                "exchange": "NASDAQ",
-                "mic_code": "XNGS",
-                "currency": "USD",
-                "datetime": "2023-08-11",
-                "timestamp": 1691783959,
-                "close": "13644.84961"
-            });
+            fetch(url + "IXIC" + "&apikey=" + apikey)
+                .then(response => response.json())
+                .then(data => {
+                    setEod(data);
+                    console.log(data);
+                })
         }
-        // fetch(url + "DJIA" + "&apikey=" + apikey)
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         setEod(data);
-        //         console.log(data);
-        //     })
         var breakAt = 4; //breaks at 4 characters
         var brokenString = $("#breakline").html();
         brokenString = brokenString.substring(0, breakAt) + "<br>" + brokenString.substring(breakAt);

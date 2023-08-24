@@ -8,6 +8,7 @@ const url = "https://api.twelvedata.com/eod?symbol="
 function Quickstockview(props) {
     const [eod, setEod] = useState([]);
     useEffect(() => {
+        // Temp Data until fetches
         setEod({
             "symbol": "IXIC",
             "exchange": "NASDAQ",
@@ -17,22 +18,13 @@ function Quickstockview(props) {
             "timestamp": 1691783959,
             "close": "13644.84961"
         });
-        const data = {
-            "symbol": "IXIC",
-            "exchange": "NASDAQ",
-            "mic_code": "XNGS",
-            "currency": "USD",
-            "datetime": "2023-08-11",
-            "timestamp": 1691783959,
-            "close": "13644.84961"
-        };
-        props.setCurrency(data.currency);
-        // fetch(url + "DJIA" + "&apikey=" + apikey)
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         setEod(data);
-        //         console.log(data);
-        //     })
+        props.setCurrency(eod.currency);
+        fetch(url + props.stock + "&apikey=" + apikey)
+            .then(response => response.json())
+            .then(data => {
+                setEod(data);
+                console.log(data);
+            })
     }, []);
     return (
         <div className='stockinfo'>
